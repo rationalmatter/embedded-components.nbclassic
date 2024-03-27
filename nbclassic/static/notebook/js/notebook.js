@@ -2752,7 +2752,7 @@ define([
 
         var that = this;
         var _save = function () {
-            return window.webkit.messageHandlers.saveNotebookFileUpdatingContents.postMessage(JSON.stringify(model.content)).then(
+            return window.webkit.messageHandlers.saveNotebookFileUpdatingContents.postMessage(JSON.stringify(model.content, null, 1)).then(
                 $.proxy(that.save_notebook_success, that, start),
                 function (error) {
                     that.events.trigger('notebook_save_failed.Notebook', error);
